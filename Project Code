@@ -18,7 +18,10 @@ def calculate_synthetic_ndvi(image_array):
     r = image_float[:, :, 0]
     g = image_float[:, :, 1]
     b = image_float[:, :, 2]
-    nir_approx = (r + g + b) / 3
+
+    # Use a linear regression model to estimate NIR from RGB
+    nir_approx = 0.2424 * r + 0.5539 * g + 0.2037 * b
+
     epsilon = 1e-8
     ndvi = (nir_approx - r) / (nir_approx + r + epsilon)
     ndvi = (ndvi + 1) / 2
