@@ -1,13 +1,12 @@
+import os
+os.environ['MPLBACKEND'] = 'Agg'  # Set the matplotlib backend before importing pyplot
+import matplotlib.pyplot as plt
+
 import streamlit as st
 import numpy as np
 from PIL import Image
-import os
 from pathlib import Path
 import io
-import matplotlib.pyplot as plt
-
-# Configure matplotlib to use a non-interactive backend
-plt.switch_backend('Agg')
 
 st.title("Synthetic NDVI Converter for Drought Estimation")
 st.write("""
